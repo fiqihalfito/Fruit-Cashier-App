@@ -4,13 +4,14 @@ import Card from '@/components/card'
 import Cart from '@/components/cart'
 import { kv } from '@vercel/kv'
 import { cookies } from 'next/headers'
+import { removeCookie } from '@/actions'
 
 
 
 export default async function Home() {
 
     const cartId = cookies().get('cartId')?.value
-    const userCart = cartId ? await kv.get(cartId) : []
+    const userCart = cartId ? (await kv.get(cartId) ?? []) : []
 
     return (
         <div>

@@ -21,9 +21,15 @@ export default function Card({ fruit, userCart }) {
 
             <div
                 className="p-4 bg-white rounded-lg shadow-md cursor-pointer hover:scale-105 transition-all"
-                onClick={() => setIsModalOpen(status => !status)}
+                onClick={handleModal}
             >
-                <Image src={`/images/fruits/${fruit.img}`} width={300} height={300} alt="fruit" className="rounded-md" />
+                <Image
+                    src={`/images/fruits/${fruit.img}`}
+                    width={300}
+                    height={300}
+                    alt="fruit"
+                    className="rounded-md"
+                    priority />
                 {/* <p>Name : {fruit.name}</p> */}
 
             </div>

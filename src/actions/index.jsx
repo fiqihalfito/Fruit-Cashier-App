@@ -20,7 +20,7 @@ export async function addToCart(fruitId, count) {
         // if there's cart id in cookies then get data in KV using cart id
         // const cartId = cookieStore.get('cartId')?.value
         // get prev cart
-        const prevCart = await kv.get(cartId)
+        const prevCart = await kv.get(cartId) ?? []
 
         // if last cart has item then calculate fruit count only
         if (prevCart.length > 0) {
@@ -59,4 +59,9 @@ export async function emptyCart() {
 
     await kv.setex(cartId, process.env.ONE_WEEK, [])
     revalidatePath('/')
+}
+
+export async function removeCookie(key) {
+    const cookieStore = cookies()
+    cookieStore.delete('cartId')
 }
