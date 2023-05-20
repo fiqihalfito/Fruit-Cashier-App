@@ -14,23 +14,20 @@ export default async function Home() {
     const userCart = cartId ? (await kv.get(cartId) ?? []) : []
 
     return (
-        <div>
+        <div className='px-20 py-20x font-redHatDisplay'>
             {/* container */}
-            <div className='px-20 pb-20'>
-                <div className='flex gap-x-20'>
-                    <Cart userCart={userCart} />
-                    <div className='bg-white/50 rounded-md p-4 shadow'>
-                        <div className='grid grid-cols-3 gap-5'>
-                            {fruits.map(fruit => (
-                                <Card key={fruit.id} fruit={fruit} userCart={userCart} />
-                            ))}
-                        </div>
+            <div className='flex gap-x-20 relative -top-44'>
+                <Cart userCart={userCart} />
+                <div className='bg-white/30 backdrop-blur rounded-md p-4 shadow'>
+                    <div className='grid grid-cols-3 gap-5'>
+                        {fruits.map(fruit => (
+                            <Card key={fruit.id} fruit={fruit} userCart={userCart} />
+                        ))}
                     </div>
-
-
                 </div>
-            </div>
 
+
+            </div>
         </div>
     )
 }

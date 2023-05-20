@@ -1,7 +1,7 @@
 export default function Header() {
     return (
-        <div className="py-4 px-16 shadow bg-white mb-20">
-            <p className="font-bold">Cashier App</p>
+        <div className="h-96 px-24 pt-20 shadow bg-lime-400 ">
+            <p className=" text-6xl text-white font-lilyScriptOne">Fruit Shop</p>
         </div>
     )
 }
