@@ -1,8 +1,6 @@
 import Header from '@/components/root/header'
 import './globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import { inter, lily_script_one, red_hat_display } from '@/fonts'
 
 export const metadata = {
   title: 'Create Next App',
@@ -12,7 +10,7 @@ export const metadata = {
 export default function RootLayout({ children, modal }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-slate-100`}>
+      <body className={`${lily_script_one.variable} ${inter.variable} ${red_hat_display.variable} bg-slate-100`}>
         <Header />
         {children}
       </body>
