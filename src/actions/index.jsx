@@ -29,9 +29,13 @@ export async function addToCart(fruitId, count) {
 
             // if there's similar fruit in cart then calculate the count
             if (indexSameFruit > -1) {
-                // const prevCount = Number(prevCart[indexSameFruit].count)
-                const newCount = count
-                prevCart[indexSameFruit] = { id: fruitId, count: newCount }
+
+                if (count == 0) {
+                    prevCart.splice(indexSameFruit, 1)
+                } else {
+                    prevCart[indexSameFruit] = { id: fruitId, count: count }
+                }
+
                 await kv.setex(cartId, process.env.ONE_WEEK, prevCart)
             } else {
 
