@@ -10,9 +10,9 @@ export default function Modal({ fruit, handleModal, currCount }) {
 
     async function handleSubmit() {
         // "use server"
-        if (count == 0) {
-            return
-        }
+        // if (count == 0) {
+        //     return
+        // }
         await addToCart(fruit.id, count)
         handleModal()
     }

@@ -25,8 +25,6 @@ export default async function Home() {
                         ))}
                     </div>
                 </div>
-
-
             </div>
         </div>
     )

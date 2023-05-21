@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import Modal from "../modal";
 import { createPortal } from "react-dom";
@@ -20,7 +19,7 @@ export default function Card({ fruit, userCart }) {
         <>
 
             <div
-                className="p-4 bg-white rounded-lg shadow-md cursor-pointer hover:scale-105 transition-all"
+                className="p-4 bg-white font-redHatDisplayx rounded-lg shadow-md cursor-pointer hover:scale-105 transition-all"
                 onClick={handleModal}
             >
                 <Image
@@ -28,9 +27,18 @@ export default function Card({ fruit, userCart }) {
                     width={300}
                     height={300}
                     alt="fruit"
-                    className="rounded-md"
+                    className="rounded-md mb-3"
                     priority />
-                {/* <p>Name : {fruit.name}</p> */}
+
+                <div className="flex justify-between items-center font-medium">
+                    <div>
+                        <h1 className="text-lime-600 leading-5 text-lg tracking-wide">{fruit.name}</h1>
+                        <h6 className="text-xs text-slate-400">per kilo</h6>
+                    </div>
+                    <h3 className="text-amber-400 text-xl">
+                        ${fruit.price}
+                    </h3>
+                </div>
 
             </div>
             {isModalOpen && createPortal(
